@@ -1,6 +1,3 @@
-// src/pages/api/roadmaps/generate.ts
-// Next.js API route: POST /api/roadmaps/generate
-
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 const SYSTEM_PROMPT = `You are DevPilot, an expert software project planner...`; // same as before
@@ -13,13 +10,13 @@ function getMockRoadmap(idea: string) {
     estimated_weeks: 8,
     tracks: ['setup', 'core', 'features', 'polish'],
     milestones: [
-      // ... same mock data as before
+      
     ]
   };
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  // Only accept POST
+  
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -30,7 +27,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ error: 'idea is required' });
   }
 
-  // Try AI first, fallback to mock
   let roadmap;
   const apiKey = process.env.OPENAI_API_KEY;
 
